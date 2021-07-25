@@ -9,7 +9,6 @@ import {
 } from "../../../state/actions/actions";
 import { populateData } from "../../../helperFunctions/populateData";
 import { Button, Card, Typography, Input } from "@material-ui/core";
-import "../../../../stylesheets/StartContainer.css";
 
 export const Connect: FC = () => {
   const isConnected = useSelector<overallState, KafkaState["isConnected"]>(
