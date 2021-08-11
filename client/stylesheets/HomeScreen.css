@@ -5,6 +5,7 @@
   width: auto;
   align-items: center;
   padding: 10;
+  margin: 10px;
 }
 
 .title {
@@ -19,4 +20,14 @@
 .button {
   margin-top: 10;
   background-color: "red";
+}
+
+.homeContainer {
+  display: flex;
+  height: 100vh;
+  align-items: start;
+}
+
+.startContainer {
+  margin: 10px;
 }
