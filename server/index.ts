@@ -9,7 +9,6 @@ import { RouteConfig } from './common/route.config';
 import { AuthRoutes } from './auth/auth.routes';
 import { OAuthRoutes } from './oauth/oauth.routes';
 import { GroupRoutes } from './kafka/group/group.routes';
-import { JMXRoutes } from './jmx/jmx.routes';
 import { KafkaRoutes } from './kafka/kafka/kafka.routes';
 import { LogRoutes } from './log/log.routes';
 import { TopicRoutes } from './kafka/topic/topic.routes';
@@ -23,25 +22,24 @@ export const server = http.createServer(app);
 const wss = new Server({ server });
 
 // middlewares
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../build')));
-
-app.get('/*', (req, res) => {
-	return res.sendFile(path.join(__dirname, '../build/index.html'));
-});
 
 // routes
 const routes: Array<RouteConfig> = [];
 routes.push(new AuthRoutes(app));
 routes.push(new OAuthRoutes(app));
 routes.push(new GroupRoutes(app));
-routes.push(new JMXRoutes(app));
 routes.push(new KafkaRoutes(app));
 routes.push(new LogRoutes(app));
 routes.push(new TopicRoutes(app));
+
+app.get('/*', (req, res) => {
+	return res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 //! server index html
 // app.get('/partition', (req, res) => {
