@@ -50,10 +50,7 @@ export const kafkaDataReducer = (
         isConnected: true,
       };
     case Type.DISCONNECTED:
-      return {
-        ...state,
-        isConnected: false,
-      };
+      return initialState;
     case Type.POPULATE_DATA:
       return {
         ...state,
