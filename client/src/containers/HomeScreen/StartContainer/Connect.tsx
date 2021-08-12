@@ -10,7 +10,6 @@ import {
   populateNotifActionCreator,
 } from "../../../state/actions/actions";
 import { populateData } from "../../../helperFunctions/populateData";
-import "../../../../stylesheets/StartContainer.css";
 
 export const Connect: FC = () => {
   const isConnected = useSelector<RootState, KafkaState["isConnected"]>(
@@ -22,10 +21,8 @@ export const Connect: FC = () => {
 
   const handleConnect = () => {
     if (inputPort.current !== null) {
-      console.log("ref component", inputPort.current);
-      console.log("child", inputPort.current.children);
       // const inputElement: HTMLInputElement = inputPort.current.children[0];
-      const PORT: any = inputPort.current.value;
+      const PORT = inputPort.current.value;
       console.log("PORT value is ", PORT);
 
       if (!PORT.length) return alert("Port cannnot be empty");
@@ -36,10 +33,11 @@ export const Connect: FC = () => {
         body: JSON.stringify({ PORT }),
       };
 
-      fetch("http://localhost:3000/api/connect", options)
-        .then((data) => data.json())
+      fetch("http://localhost:8080/api/connect", options)
+        .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          if (!data.ok) throw new Error(data);
           // if (inputPort.current !== null) inputPort.current.disabled = true;
           //set up websocket connection here
           // const ws = new WebSocket("ws://localhost:3000");
