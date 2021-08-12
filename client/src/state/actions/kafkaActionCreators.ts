@@ -1,5 +1,5 @@
-import { Type } from '../constants/constants';
-import { KafkaState } from '../reducers/kafkaDataReducer';
+import { Type } from "../constants/kafkaConstants";
+import { KafkaState } from "../reducers/kafkaDataReducer";
 
 export interface Action {
   type: number;
@@ -49,13 +49,6 @@ export const populateNotifActionCreator = (input: any) => {
 export const appendNotifActionCreator = (input: any) => {
   return {
     type: Type.APPEND_NOTIF,
-    payload: input,
-  };
-};
-
-export const populateChartActionCreator = (input: any) => {
-  return {
-    type: Type.POPULATE_CHART,
     payload: input,
   };
 };
