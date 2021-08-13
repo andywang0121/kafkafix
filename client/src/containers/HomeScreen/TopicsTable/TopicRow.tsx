@@ -34,7 +34,7 @@ export const TopicRow: FC<TopicRowProps> = ({ row }) => {
 
   return (
     <>
-      <TableRow className='root'>
+      <TableRow className='tableRow'>
         <TableCell>
           <IconButton
             aria-label='expand row'
