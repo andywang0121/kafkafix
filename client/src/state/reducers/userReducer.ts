@@ -1,5 +1,5 @@
 import * as types from '../constants/userConstants';
-import { Action } from '../actions/userActions';
+import { Action } from '../actions/userActionCreators';
 
 export interface UserState {
 	email: string;

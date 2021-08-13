@@ -1,4 +1,4 @@
-import { populateDataActionCreator } from "../state/actions/actions";
+import { populateDataActionCreator } from "../state/actions/kafkaActionCreators";
 
 const createData = (
   topicName: string,

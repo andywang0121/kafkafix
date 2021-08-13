@@ -14,7 +14,7 @@ import { RootState } from './state/reducers/index';
 import { PartitionScreen } from './containers/PartitionScreen/PartitionScreen';
 import { Groups } from './containers/HomeScreen/Sidepanel/Groups';
 import { Login } from './containers/Authentication/Login';
-import { appendMessageActionCreator } from './state/actions/actions';
+import { appendMessageActionCreator } from './state/actions/kafkaActionCreators';
 
 const ws = new WebSocket('ws://localhost:3000');
 ws.onopen = () => console.log('connected to websocket');

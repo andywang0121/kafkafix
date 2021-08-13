@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { MTPaginationOptions } from "./MTPaginationOptions";
-import { appendMessageActionCreator } from "../../state/actions/actions";
+import React, { FC, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { MTPaginationOptions } from './MTPaginationOptions';
+import { appendMessageActionCreator } from '../../state/actions/kafkaActionCreators';
 
 import {
   Table,
@@ -14,23 +14,23 @@ import {
   TablePagination,
   Paper,
   makeStyles,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 const useRowStyles = makeStyles({
   root: {
-    "& > *": {
-      borderBottom: "unset",
+    '& > *': {
+      borderBottom: 'unset',
     },
   },
   tableWrapper: {
     margin: 30,
   },
   tableHeaderRow: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
   },
   tableHeaderText: {
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 
@@ -48,7 +48,7 @@ export const MessageTable: FC<MessageTableProps> = ({
   const flattenObj = (obj: any) => {
     const flatObj: any = {};
     Object.keys(obj).forEach((key) => {
-      if (typeof obj[key] === "object")
+      if (typeof obj[key] === 'object')
         Object.assign(flatObj, flattenObj(obj[key]));
       else flatObj[key] = obj[key];
     });
@@ -69,7 +69,7 @@ export const MessageTable: FC<MessageTableProps> = ({
   const emptyRows = [];
   for (let i = 0; i < numEmptyRows; i++) {
     emptyRows.push(
-      <TableRow key={"emptyRow" + i} style={{ height: 53 }}>
+      <TableRow key={'emptyRow' + i} style={{ height: 53 }}>
         <TableCell
           colSpan={messages[0] ? Object.keys(messages[0]).length : 0}
         />
@@ -104,12 +104,12 @@ export const MessageTable: FC<MessageTableProps> = ({
   return (
     <div className={classes.root}>
       <TableContainer component={Paper} className={classes.tableWrapper}>
-        <Table aria-label="custom pagination table">
+        <Table aria-label='custom pagination table'>
           <TableHead>
             <TableRow className={classes.tableHeaderRow}>
               {messages[0] &&
                 Object.keys(messages[0]).map((key) => (
-                  <TableCell style={{ color: "white" }}>{key}</TableCell>
+                  <TableCell style={{ color: 'white' }}>{key}</TableCell>
                 ))}
             </TableRow>
           </TableHead>
@@ -133,7 +133,7 @@ export const MessageTable: FC<MessageTableProps> = ({
                 rowsPerPage={pageSize}
                 page={pageIndex}
                 SelectProps={{
-                  inputProps: { "aria-label": "rows per page" },
+                  inputProps: { 'aria-label': 'rows per page' },
                   native: true,
                 }}
                 onPageChange={handleChangePage}

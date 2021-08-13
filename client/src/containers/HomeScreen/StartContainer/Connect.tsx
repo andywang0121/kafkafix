@@ -8,7 +8,7 @@ import {
   connectedActionCreator,
   disconnectedActionCreator,
   populateNotifActionCreator,
-} from "../../../state/actions/actions";
+} from "../../../state/actions/kafkaActionCreators";
 import { populateData } from "../../../helperFunctions/populateData";
 
 export const Connect: FC = () => {
