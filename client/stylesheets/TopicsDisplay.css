@@ -1,33 +1,33 @@
-.root {
-  border-bottom: "unset";
+.tableRow {
+  border-bottom: unset;
 }
 
 .tableWrapper {
   margin: 30px;
 }
 
-.buttonsWrapper {
+.buttonWrapper {
   display: flex;
   justify-content: space-around;
 }
 
 .tableHeaderRow {
-  background-color: "black";
+  background-color: black;
 }
 
 .tableHeaderText {
-  color: "white";
-  font-weight: "bold";
+  color: white;
+  font-weight: bold;
 }
 
 .partitionButtons {
-  background-color: "white";
+  background-color: white;
 }
 
 .primaryButtons {
-  background-color: "white";
-  justify-self: "center";
-  color: "black";
+  background-color: white;
+  justify-self: center;
+  color: black;
 }
 
 .modal {
@@ -43,13 +43,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: "white";
+  background-color: white;
   border-radius: 5%;
 }
 
 .button {
   margin-top: 10px;
-  background-color: "red";
+  background-color: red;
 }
 
 .removeVerticalPadding {
