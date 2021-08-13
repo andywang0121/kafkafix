@@ -1,22 +1,5 @@
 import { Type } from '../constants/metricsConstants';
 import { Action } from '../actions/metricsActionCreators';
-import { startTimer } from 'winston';
-
-// export interface MetricsState {
-//   chartData: ChartData | Object;
-// }
-
-// interface ChartData {
-//   labels: string[];
-//   datasets: DataSet[];
-// }
-
-// interface DataSet {
-//   label: string;
-//   data: number[];
-//   backgroundColor: string[];
-//   borderWidth: number;
-// }
 
 export type singleValData = [number?, string?];
 
