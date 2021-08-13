@@ -60,6 +60,7 @@ export const TopicModal: FC<TopicModalInterface> = ({
             type='text'
             placeholder='KafkaFix'
           />
+          <Typography variant='h6'>Enter Number of Partitions</Typography>
           <Input
             id='inputNumberOfPartitions'
             inputRef={inputNumPartitions}

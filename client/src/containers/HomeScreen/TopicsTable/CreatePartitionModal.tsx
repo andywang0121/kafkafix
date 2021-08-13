@@ -60,11 +60,9 @@ export const CreatePartitionModal: FC<CreatePartitionModalProps> = ({
     >
       <Fade in={modalStatus}>
         <div className='insideModalDiv'>
-          <Typography variant='h3'>
-            Create Partitions for Topic {topic}
-          </Typography>
+          <Typography variant='h3'>Create Partitions for {topic}</Typography>
           <Typography variant='h4'>
-            Current Number of Partitions {currPartitionNumber}
+            Current Number of Partitions: {currPartitionNumber}
           </Typography>
           <Typography variant='h6'>Add # of Partitions</Typography>
           <Input
