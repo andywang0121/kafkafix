@@ -1,5 +1,5 @@
-import React, { FC, useRef } from "react";
-import { Button, Typography, Input, Modal } from "@material-ui/core";
+import React, { FC, useRef } from 'react';
+import { Button, Typography, Input, Modal, Fade } from '@material-ui/core';
 
 interface ProducerModalInterface {
   modalStatus: boolean;
@@ -16,18 +16,18 @@ export const ProducerModal: FC<ProducerModalInterface> = ({
   const handleStartProducer = () => {
     if (inputProducer.current !== null) {
       const topic = inputProducer.current.value;
-      console.log("topic to start producer: ", topic);
+      console.log('topic to start producer: ', topic);
       if (topic.length === 0) {
-        alert("Cannot leave topic field empty");
+        alert('Cannot leave topic field empty');
         return;
       }
       const options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic }),
       };
 
-      fetch("http://localhost:3000/api/producer", options)
+      fetch('http://localhost:3000/api/producer', options)
         .then((data) => data.json())
         .then((data) => {
           setModalStatus(false);
@@ -39,34 +39,34 @@ export const ProducerModal: FC<ProducerModalInterface> = ({
   };
 
   return (
-    <>
-      <Modal
-        open={modalStatus}
-        onClose={() => setModalStatus(false)}
-        aria-labelledby="start-producer"
-        aria-describedby="start-producer"
-        className="modal"
-      >
-        <div className="insideModalDiv">
-          <Typography variant="h6">Producer to start</Typography>
+    <Modal
+      open={modalStatus}
+      onClose={() => setModalStatus(false)}
+      aria-labelledby='start-producer'
+      aria-describedby='start-producer'
+      className='modal'
+    >
+      <Fade in={modalStatus}>
+        <div className='insideModalDiv'>
+          <Typography variant='h6'>Producer to start</Typography>
 
           <Input
-            id="selectProducer"
+            id='selectProducer'
             inputRef={inputProducer}
-            type="text"
-            placeholder="Kafkafix"
+            type='text'
+            placeholder='Kafkafix'
           />
 
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             onClick={handleStartProducer}
-            className="button"
+            className='button'
           >
             Start
           </Button>
         </div>
-      </Modal>
-    </>
+      </Fade>
+    </Modal>
   );
 };
