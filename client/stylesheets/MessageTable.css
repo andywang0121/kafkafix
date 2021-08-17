@@ -1,0 +1,19 @@
+.message-table-wrapper {
+  border-bottom: unset;
+}
+
+.table-wrapper {
+  margin: 30px;
+}
+
+.table-header-row {
+  background-color: black;
+}
+
+.table-cell {
+  color: white;
+}
+
+.table-row {
+  height: 53px;
+}
