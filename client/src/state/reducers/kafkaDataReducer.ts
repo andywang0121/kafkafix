@@ -1,5 +1,5 @@
-import { Type } from "../constants/constants";
-import { Action } from "../actions/actions";
+import { Type } from '../constants/kafkaConstants';
+import { Action } from '../actions/kafkaActionCreators';
 
 export interface KafkaState {
   isConnected: boolean;
