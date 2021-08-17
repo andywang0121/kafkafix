@@ -13,26 +13,9 @@ import {
   TableFooter,
   TablePagination,
   Paper,
-  makeStyles,
 } from '@material-ui/core';
 
-const useRowStyles = makeStyles({
-  root: {
-    '& > *': {
-      borderBottom: 'unset',
-    },
-  },
-  tableWrapper: {
-    margin: 30,
-  },
-  tableHeaderRow: {
-    backgroundColor: 'black',
-  },
-  tableHeaderText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-});
+import '../../../stylesheets/MessageTable.css';
 
 interface MessageTableProps {
   messages: {}[];
@@ -43,8 +26,6 @@ export const MessageTable: FC<MessageTableProps> = ({
   messages,
   setMessages,
 }) => {
-  const classes = useRowStyles();
-
   const flattenObj = (obj: any) => {
     const flatObj: any = {};
     Object.keys(obj).forEach((key) => {
@@ -102,21 +83,21 @@ export const MessageTable: FC<MessageTableProps> = ({
   };
 
   return (
-    <div className={classes.root}>
-      <TableContainer component={Paper} className={classes.tableWrapper}>
+    <div className='message-table-wrapper'>
+      <TableContainer component={Paper} className='table-wrapper'>
         <Table aria-label='custom pagination table'>
           <TableHead>
-            <TableRow className={classes.tableHeaderRow}>
+            <TableRow className='table-header-row'>
               {messages[0] &&
                 Object.keys(messages[0]).map((key) => (
-                  <TableCell style={{ color: 'white' }}>{key}</TableCell>
+                  <TableCell className='table-cell'>{key}</TableCell>
                 ))}
             </TableRow>
           </TableHead>
 
           <TableBody>
             {showMessages.map((el, index) => (
-              <TableRow key={index} style={{ height: 53 }}>
+              <TableRow key={index} className='table-row'>
                 {Object.values(el).map((value: any) => (
                   <TableCell>{value}</TableCell>
                 ))}
@@ -126,7 +107,7 @@ export const MessageTable: FC<MessageTableProps> = ({
           </TableBody>
 
           <TableFooter>
-            <TableRow style={{ height: 53 }}>
+            <TableRow className='table-row'>
               <TablePagination
                 rowsPerPageOptions={[25, 50, 100]}
                 count={messages.length}
